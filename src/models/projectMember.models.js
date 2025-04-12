@@ -8,19 +8,20 @@ const projectMemberSchema = new Schema(
       required: true,
     },
     project:{
-      type: Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,                                          
       ref:"Project"
     },
     role:{
         type:String,
-        enum:AvailableUserRoles,
+        enum:AvailableUserRoles,// ["admin", "project_admin", "member"]
         default:UserRoleEnum.MEMBER
     }
   },
   { timestamps: true }
 );
 
-export const projectMember = mongoose.model(
-  "projectMember",
+export const ProjectMember = mongoose.model(
+  "ProjectMember",
   projectMemberSchema
 );
+
